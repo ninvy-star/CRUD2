@@ -1,0 +1,1014 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;500&family=Josefin+Sans:wght@300;400;600&display=swap');
+
+/* ========================================
+   VARIABLES & BASE
+======================================== */
+:root {
+  --gold: #c59d5f;
+  --gold-dark: #a67c3c;
+  --gold-light: #e2c48a;
+  --black: #0a0a0a;
+  --dark: #111111;
+  --dark2: #1a1a1a;
+  --dark3: #222222;
+  --white: #f5f0e8;
+  --text-muted: #888;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+  background: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ========================================
+   NAVBAR
+======================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+  backdrop-filter: blur(4px);
+}
+
+.navbar-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.navbar-brand span {
+  color: var(--white);
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.navbar-nav a {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  opacity: 0.75;
+  transition: 0.3s;
+  position: relative;
+}
+
+.navbar-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: 0.3s;
+}
+
+.navbar-nav a:hover {
+  opacity: 1;
+  color: var(--gold);
+}
+
+.navbar-nav a:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: var(--black) !important;
+  padding: 10px 22px;
+  border-radius: 2px;
+  opacity: 1 !important;
+  transition: 0.3s !important;
+  font-weight: 600;
+}
+
+.nav-cta:hover {
+  background: var(--gold-dark) !important;
+}
+
+/* ========================================
+   HERO
+======================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  background-color: #0a0a0a;
+  background-image: var(--bg-hero, none);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+  105deg,
+  rgba(0,0,0,0.70) 0%,
+  rgba(0,0,0,0.75) 50%,
+  rgba(0,0,0,0.60) 100%
+  );
+  z-index: 1;
+}
+
+/* Decorative gold line */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  z-index: 2;
+}
+
+.overlay {
+  display: none; /* replaced by ::before */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  padding: 0 80px;
+  max-width: 750px;
+  animation: heroFadeIn 1.4s ease-out both;
+}
+
+.hero-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(52px, 7vw, 88px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+  color: var(--white);
+}
+
+.hero-content h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-content p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: rgba(245, 240, 232, 0.7);
+  margin-bottom: 40px;
+  font-weight: 300;
+  max-width: 480px;
+}
+
+.hero-btn {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-btn a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 16px 36px;
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: var(--gold-dark);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: 15px 36px;
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.3);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* Hero signature bottom */
+.hero-meta {
+  position: absolute;
+  bottom: 40px;
+  left: 80px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.hero-meta-item {
+  text-align: left;
+}
+
+.hero-meta-item .number {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+}
+
+.hero-meta-item .label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.hero-meta-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.15);
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   ABOUT / STORY SECTION
+======================================== */
+.about {
+  padding: 100px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  background: var(--dark);
+  position: relative;
+}
+
+.about::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1px;
+  height: 60%;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+}
+
+.about-left {
+  text-align: left;
+}
+
+.section-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.about-left h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  color: var(--white);
+}
+
+.about-left h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.about-left p {
+  font-size: 17px;
+  line-height: 2;
+  color: rgba(245,240,232,0.65);
+  font-weight: 300;
+  margin-bottom: 36px;
+}
+
+.about-right {
+  text-align: left;
+  padding-left: 40px;
+}
+
+.about-right p {
+  font-size: 16px;
+  line-height: 2;
+  color: rgba(245,240,232,0.6);
+  font-weight: 300;
+  margin-bottom: 36px;
+}
+
+.about-quote {
+  border-left: 3px solid var(--gold);
+  padding-left: 24px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--gold-light);
+  line-height: 1.7;
+}
+
+/* ========================================
+   MENU / KOLEKSI SECTION
+======================================== */
+.menu {
+  padding: 100px 60px;
+  background: var(--black);
+  text-align: center;
+}
+
+.menu-header {
+  margin-bottom: 60px;
+}
+
+.menu-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 5vw, 60px);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.menu-header h2 span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.menu-header p {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+}
+
+/* CARD */
+.card {
+  background: var(--dark2);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  border: 1px solid rgba(197, 157, 95, 0.1);
+  text-align: left;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--gold), var(--gold-dark));
+  transform: scaleX(0);
+  transition: 0.4s;
+  transform-origin: left;
+}
+
+.card:hover::after {
+  transform: scaleX(1);
+}
+
+/* IMAGE */
+.card-img {
+  height: 280px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: 0.6s ease;
+  filter: brightness(0.85);
+}
+
+.card-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: var(--black);
+  padding: 5px 10px;
+  border-radius: 1px;
+  font-weight: 600;
+}
+
+/* BODY */
+.card-body {
+  padding: 24px 24px 28px;
+}
+
+.card-series {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.card-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.card-body .desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 18px;
+  font-weight: 300;
+}
+
+.card-body .price {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.card-cta {
+  margin-top: 14px;
+  display: inline-block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.5);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(245,240,232,0.2);
+  padding-bottom: 2px;
+  transition: 0.3s;
+}
+
+.card-cta:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+/* HOVER EFFECT */
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(197,157,95,0.2);
+}
+
+.card:hover img {
+  transform: scale(1.08);
+  filter: brightness(1);
+}
+
+/* See more button */
+.menu-cta-wrap {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* ========================================
+   BOOKING / RESERVASI
+======================================== */
+.booking {
+  padding: 100px 60px;
+  background:
+    linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.65)),
+    var(--bg-booking, none) center/cover no-repeat;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative element */
+.booking::before {
+  content: '"';
+  position: absolute;
+  top: -40px;
+  right: 80px;
+  font-family: 'Playfair Display', serif;
+  font-size: 300px;
+  color: var(--gold);
+  opacity: 0.04;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.booking-container {
+  max-width: 880px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.booking-text {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.booking-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 4vw, 54px);
+  font-weight: 900;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.booking-text h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.booking-text p {
+  font-size: 16px;
+  color: rgba(245,240,232,0.6);
+  line-height: 1.9;
+  font-weight: 300;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.booking-form {
+  background: rgba(0,0,0,0.70);
+  padding: 40px 50px;
+  border: 1px solid rgba(197,157,95,0.2);
+  position: relative;
+}
+
+.booking-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.booking-form input {
+  width: 100%;
+  padding: 14px 20px;
+  margin: 8px 0;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(197,157,95,0.2);
+  color: var(--white);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.booking-form input::placeholder {
+  color: rgba(255,255,255,0.3);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.booking-form input:focus {
+  border-color: var(--gold);
+  background: rgba(197,157,95,0.08);
+}
+
+.booking-form button {
+  width: 100%;
+  padding: 16px;
+  margin-top: 16px;
+  border: none;
+  background: var(--gold);
+  color: var(--black);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.booking-form button:hover {
+  background: var(--gold-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(197,157,95,0.25);
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+.footer {
+  background: #080808;
+  color: #ccc;
+  padding: 70px 60px 30px;
+  border-top: 1px solid rgba(197,157,95,0.15);
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.footer-col .brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.footer-col h3,
+.footer-col h4 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.footer-col p {
+  font-size: 14px;
+  margin: 8px 0;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.4);
+}
+
+.social a {
+  display: block;
+  text-decoration: none;
+  color: rgba(255,255,255,0.4);
+  margin: 10px 0;
+  font-size: 13px;
+  transition: 0.3s;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 1px;
+}
+
+.social a:hover {
+  color: var(--gold);
+  padding-left: 8px;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 24px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 80px 40px;
+  }
+
+  .about::after { display: none; }
+  .about-right { padding-left: 0; }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar { padding: 18px 24px; }
+  .navbar-nav { display: none; }
+  .hero-content { padding: 0 30px; }
+  .hero-meta { left: 30px; }
+  .menu { padding: 70px 24px; }
+  .grid { grid-template-columns: 1fr; }
+  .booking { padding: 70px 24px; }
+  .booking-form { padding: 30px 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer { padding: 50px 24px 24px; }
+  .footer-container { grid-template-columns: 1fr; gap: 30px; }
+}
+
+/* Kotak WhatsApp di bagian Kunjungi Kami */
+.booking-form p {
+  margin-bottom: 24px;
+  color: rgba(245, 240, 232, 0.85);
+  font-size: 17px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.booking-form .btn-primary {
+  display: block;
+  text-align: center;
+}
+
+/* ========================================
+   KATALOG (produk.php)
+======================================== */
+.catalog {
+  padding-top: 150px;   /* memberi ruang untuk navbar yang melayang */
+  min-height: 100vh;
+}
+
+.catalog-filter {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto 24px;
+}
+
+.catalog-filter input,
+.catalog-filter select {
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(197, 157, 95, 0.25);
+  color: var(--white);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  border-radius: 2px;
+  outline: none;
+}
+
+.catalog-filter input {
+  flex: 1 1 260px;
+}
+
+.catalog-filter input:focus,
+.catalog-filter select:focus {
+  border-color: var(--gold);
+}
+
+.catalog-filter select option {
+  background: var(--dark2);
+  color: var(--white);
+}
+
+.catalog-info {
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+.catalog-empty {
+  color: var(--text-muted);
+  font-size: 18px;
+  padding: 60px 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pagination a {
+  padding: 10px 16px;
+  border: 1px solid rgba(197, 157, 95, 0.3);
+  color: var(--white);
+  text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.pagination a:hover,
+.pagination a.active {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* ========================================
+   DETAIL BUKU (detail.php)
+======================================== */
+.detail {
+  text-align: left;
+}
+
+.detail-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.detail-img {
+  border: 1px solid rgba(197, 157, 95, 0.2);
+  background: var(--dark2);
+  overflow: hidden;
+}
+
+.detail-img img {
+  width: 100%;
+  display: block;
+}
+
+.detail-noimg {
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+}
+
+.detail-info h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.detail-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.detail-desc {
+  font-size: 18px;
+  line-height: 1.9;
+  color: rgba(245, 240, 232, 0.75);
+  margin-bottom: 28px;
+}
+
+.detail-meta {
+  list-style: none;
+  border-top: 1px solid rgba(197, 157, 95, 0.2);
+  margin-bottom: 32px;
+}
+
+.detail-meta li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(197, 157, 95, 0.2);
+  font-size: 17px;
+}
+
+.detail-meta li span {
+  align-self: center;
+  color: var(--text-muted);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 800px) {
+  .detail-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}

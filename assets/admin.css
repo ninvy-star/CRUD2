@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Josefin+Sans:wght@300;400;600&display=swap');
+
+/* ========================================
+   ADMIN - Tere Liye Books
+   Identitas sama dengan landing page (hitam & emas),
+   area isi dibuat terang supaya data mudah dibaca.
+======================================== */
+
+:root {
+    --gold: #c59d5f;
+    --gold-dark: #a67c3c;
+    --gold-light: #e2c48a;
+    --black: #0a0a0a;
+    --dark2: #1a1a1a;
+    --cream: #f6f1e8;
+    --paper: #ffffff;
+    --line: #e6dcc8;
+    --text: #2a2a2a;
+    --muted: #7a7266;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Josefin Sans', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    background: var(--cream);
+    color: var(--text);
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--black);
+    line-height: 1.25;
+    margin-top: 0;
+}
+
+h1 { font-size: 32px; }
+h2 { font-size: 24px; }
+h3 { font-size: 18px; }
+
+p {
+    color: var(--muted);
+}
+
+a {
+    color: var(--gold-dark);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color .2s;
+}
+
+a:hover {
+    color: var(--black);
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+    background: var(--black);
+    padding: 18px 0;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--gold);
+}
+
+.navbar a {
+    color: var(--gold-light);
+    text-decoration: none;
+    margin-right: 28px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: color .2s;
+}
+
+.navbar a:hover {
+    color: #fff;
+}
+
+/* ---------- Hero (jika dipakai) ---------- */
+.hero {
+    padding: 70px 20px;
+    text-align: center;
+    background: var(--dark2);
+    color: #fff;
+}
+
+/* ---------- Tombol ---------- */
+.btn {
+    display: inline-block;
+    padding: 11px 22px;
+    background: var(--black);
+    color: var(--gold-light);
+    text-decoration: none;
+    border: 1px solid var(--black);
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: background .2s, color .2s, border-color .2s;
+    line-height: 1.2;         
+    vertical-align: middle; 
+}
+
+.btn:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--black);
+}
+
+.btn-warning {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--black);
+}
+
+.btn-warning:hover {
+    background: var(--gold-dark);
+    border-color: var(--gold-dark);
+    color: #fff;
+}
+
+.btn-danger {
+    background: #9b2c2c;
+    border-color: #9b2c2c;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: #7a1f1f;
+    border-color: #7a1f1f;
+    color: #fff;
+}
+
+/* ---------- Kartu ---------- */
+.card {
+    background: var(--paper);
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--gold);
+    border-radius: 3px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.grid .card {
+    margin-bottom: 0;
+}
+
+.grid .card h3 {
+    font-family: 'Josefin Sans', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.grid .card h1 {
+    margin-bottom: 0;
+    font-size: 40px;
+    color: var(--gold-dark);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+/* ---------- Form ---------- */
+label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 11px 14px;
+    margin-top: 6px;
+    margin-bottom: 18px;
+    border: 1px solid #d9cdb5;
+    border-radius: 2px;
+    background: #fff;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 15px;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(197, 157, 95, 0.2);
+}
+
+input[type="file"] {
+    padding: 9px;
+    background: var(--cream);
+}
+
+/* ---------- Tabel ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--paper);
+}
+
+th, td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: middle;
+}
+
+th {
+    background: var(--black);
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--gold);
+}
+
+tr:hover td {
+    background: #fbf8f2;
+}
+
+td img {
+    border-radius: 2px;
+    display: block;
+}
+
+td .btn {
+    padding: 7px 14px;
+    font-size: 10px;
+}
+
+/* ---------- Pesan (flash) ---------- */
+.alert {
+    padding: 14px 18px;
+    margin: 18px 0;
+    background: #e9f4ec;
+    color: #1e5b34;
+    border-left: 4px solid #2e8b57;
+    border-radius: 2px;
+}
+
+.alert-error {
+    background: #fbe9e9;
+    color: #8a1f1f;
+    border-left-color: #b93030;
+}
+
+/* ---------- Paginasi ---------- */
+.pagination {
+    margin: 24px 0 40px;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 9px 15px;
+    background: var(--paper);
+    color: var(--black);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    text-decoration: none;
+    margin-right: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background .2s, color .2s;
+}
+
+.pagination a:hover {
+    background: var(--black);
+    border-color: var(--black);
+    color: var(--gold-light);
+}
+
+/* ---------- Layar kecil ---------- */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        overflow-x: auto;
+        padding: 20px;
+    }
+
+    .navbar a {
+        margin-right: 16px;
+        letter-spacing: 2px;
+    }
+}
