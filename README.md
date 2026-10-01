@@ -1,6 +1,6 @@
-# Tere Liye Books - Landing Page
+# Tere Liye Books - Website
 
-Landing page toko buku online koleksi novel Tere Liye.
+Website toko buku online koleksi novel Tere Liye.
 
 ### Cara Menjalankan:
 1. Masukkan folder ke dalam `C:/laragon/www/`.
