@@ -4,12 +4,19 @@ require_once "config/database.php";
 // Nomor WhatsApp toko (format 62..., tanpa tanda + dan tanpa 0 di depan)
 $wa_number = "6281234567890";
 
+// Statistik untuk hero
+$stat_buku = mysqli_fetch_assoc(
+    mysqli_query($conn, "SELECT COUNT(*) AS total FROM produk")
+);
+$stat_kategori = mysqli_fetch_assoc(
+    mysqli_query($conn, "SELECT COUNT(DISTINCT kategori) AS total FROM produk")
+);
+
 // Ambil 4 buku Fiksi Ilmiah (Seri Bumi) dari database
 $query = mysqli_query(
     $conn,
     "SELECT * FROM produk
-     WHERE kategori = 'Fiksi Ilmiah'
-     ORDER BY id ASC
+     ORDER BY id DESC
      LIMIT 4"
 );
 
@@ -20,8 +27,8 @@ include "includes/header.php";
 <section class="hero">
   <div class="hero-content">
     <div class="hero-eyebrow">Tere Liye Books</div>
-    <h1>Dunia <em>Fantasi</em><br>yang Tak<br>Terlupakan</h1>
-    <p>Jelajahi seri novel Bumi karya Tere Liye — perjalanan epik Raib, Seli, dan Ali ke dunia-dunia yang menakjubkan.</p>
+    <h1>Temukan <em>Cerita</em><br>yang Tak<br>Terlupakan</h1>
+<p>Dari petualangan fiksi ilmiah, kisah romantis, sejarah, hingga perjalanan penuh makna. Jelajahi koleksi novel Tere Liye di satu tempat.</p>
     <div class="hero-btn">
       <a href="#koleksi" class="btn-primary">Lihat Koleksi</a>
       <a href="#booking" class="btn-secondary">Kunjungi Toko</a>
@@ -30,18 +37,18 @@ include "includes/header.php";
 
   <div class="hero-meta">
     <div class="hero-meta-item">
-      <span class="number">13+</span>
-      <span class="label">Seri Novel</span>
+      <span class="number"><?= $stat_buku['total']; ?>+</span>
+      <span class="label">Buku</span>
     </div>
     <div class="hero-meta-divider"></div>
     <div class="hero-meta-item">
-      <span class="number">4</span>
-      <span class="label">Karakter Utama</span>
+      <span class="number"><?= $stat_kategori['total']; ?></span>
+      <span class="label">Kategori</span>
     </div>
     <div class="hero-meta-divider"></div>
     <div class="hero-meta-item">
       <span class="number">∞</span>
-      <span class="label">Dunia Paralel</span>
+      <span class="label">Cerita Menanti</span>
     </div>
   </div>
 </section>
@@ -49,18 +56,17 @@ include "includes/header.php";
 <!-- ABOUT -->
 <section class="about" id="tentang">
   <div class="about-left">
-    <span class="section-eyebrow">Tentang Seri</span>
-    <h2>Kisah <em>Petualangan</em><br>Lintas Dimensi</h2>
-    <p>Seri Bumi adalah dunia fiksi ilmiah dan fantasi yang diciptakan oleh Tere Liye — mengisahkan tiga remaja dengan kemampuan luar biasa yang menjelajahi dimensi-dimensi paralel yang menakjubkan.</p>
-    <a href="#koleksi" class="btn-secondary">Telusuri Koleksi</a>
+    <span class="section-eyebrow">Tentang Kami</span>
+    <h2>Teman <em>Membaca</em><br>Sepanjang Waktu</h2>
+    <p>Tere Liye Books menghadirkan koleksi novel Tere Liye dalam satu tempat, dari fiksi ilmiah dan petualangan, romansa, sampai sejarah dan kisah perjalanan.</p>
+    <a href="#koleksi" class="btn-secondary">Lihat Katalog</a>
   </div>
 
   <div class="about-right">
-    <p>Raib bisa menghilang, Seli bisa mengeluarkan petir, dan Ali si jenius eksentrik. Bersama mereka, kamu akan melewati Klan Bulan, Klan Matahari, Klan Bintang, dan masih banyak lagi dunia ajaib yang belum pernah terbayangkan sebelumnya.</p>
+    <p>Setiap buku mudah dicari berdasarkan judul atau kategori. Lihat detailnya, lalu pesan langsung lewat WhatsApp tanpa perlu ribet.</p>
     <blockquote class="about-quote">
-      "Dunia ini sungguh luas, Raib. Jauh lebih luas dari yang kamu bayangkan."<br>
-      <small style="font-size:14px; opacity:0.7; margin-top:8px; display:block;">— Tere Liye, Bumi</small>
-    </blockquote>
+    Setiap buku adalah pintu menuju dunia yang baru.
+  </blockquote>
   </div>
 </section>
 
@@ -68,8 +74,8 @@ include "includes/header.php";
 <section class="menu" id="koleksi">
   <div class="menu-header">
     <span class="section-eyebrow">Koleksi Pilihan</span>
-    <h2>Novel <span>Seri Bumi</span></h2>
-    <p>Empat novel pembuka yang akan membawamu masuk ke dalam dunia paralel yang luar biasa</p>
+    <h2>Novel <span></span>Terbaru</h2>
+    <p>Empat novel Terbaru yang baru saja hadir di toko kami</p>
   </div>
 
   <?php if (mysqli_num_rows($query) > 0): ?>

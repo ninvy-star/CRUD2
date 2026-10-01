@@ -123,8 +123,8 @@ body {
 ======================================== */
 .hero {
   position: relative;
-  height: 100vh;
-  min-height: 700px;
+  min-height: 100vh;           /* dulu: height: 100vh; min-height: 700px; */
+  padding: 100px 0 150px;
   background-color: #0a0a0a;
   background-image: var(--bg-hero, none);
   background-position: center;
