@@ -59,7 +59,7 @@ include "includes/header.php";
     <span class="section-eyebrow">Tentang Kami</span>
     <h2>Teman <em>Membaca</em><br>Sepanjang Waktu</h2>
     <p>Tere Liye Books menghadirkan koleksi novel Tere Liye dalam satu tempat, dari fiksi ilmiah dan petualangan, romansa, sampai sejarah dan kisah perjalanan.</p>
-    <a href="#koleksi" class="btn-secondary">Lihat Katalog</a>
+    <a href="#koleksi" class="btn-secondary">Lihat Koleksi</a>
   </div>
 
   <div class="about-right">
